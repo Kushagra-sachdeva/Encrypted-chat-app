@@ -1,0 +1,61 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://cdn.socket.io/4.1.3/socket.io.min.js"></script>
+</head>
+<body>
+
+<div class="mode-switcher">
+    <button id="host-chat-btn">Host Chat</button>
+    <button id="join-chat-btn">Join Chat</button>
+</div>
+
+<div class="chat-container" id="chat-container" style="display: none;">
+    <div id="name-setup" class="name-setup">
+        <h2>Enter your name</h2>
+        <input type="text" id="username" placeholder="Your name">
+        <div class="avatar-container">
+            <div class="avatar" id="boy-avatar" data-avatar="boy">
+                <img src="{% static 'male.png' %}" alt="Boy Avatar">
+            </div>
+            <div class="avatar" id="girl-avatar" data-avatar="girl">
+                <img src="{% static 'female.png' %}" alt="Girl Avatar">
+            </div>
+        </div>
+        
+        <button id="start-chat-btn">Start Chat</button>
+    </div>
+
+    <div id="server-name-setup" class="server-name-setup" style="display: none;">
+        <h2>Enter Server Name</h2>
+        <input type="text" id="server-name" placeholder="Server name">
+        <button id="set-server-name-btn">Set Server Name</button>
+    </div>
+
+    <div id="server-code-setup" class="server-code-setup" style="display: none;">
+        <h2>Enter Server Code</h2>
+        <input type="text" id="server-code" placeholder="Server code">
+        <button id="join-server-btn">Join Server</button>
+    </div>
+
+    <div id="chat-window" class="chat-window" style="display: none;">
+        <div class="chat-header">
+            <h2 id="chat-header">Chat</h2>
+        </div>
+        <div id="chat-box" class="chat-box"></div>
+        <div class="message-input">
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'home.js' %}"></script>
+
+</body>
+</html>
